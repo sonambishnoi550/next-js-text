@@ -50,7 +50,7 @@ const MyForm = () => {
     };
 
     return (
-        <div className="min-h-screen flex lg:justify-end justify-center relative pr-[27px] max-sm:px-[35px] xl:pl-[237px] pl-10 pt-[30px]">
+        <div className="min-h-screen flex lg:justify-end justify-center pr-[27px] max-sm:px-[35px] xl:pl-[237px] pl-10 pt-[30px]">
             <div className="justify-end gap-[120px] flex">
                 <div className="container ml-auto">
                     <img className="pt-[19.37px]" src="../assets/images/png/logo.png" alt="logo" width={163} height={31} />

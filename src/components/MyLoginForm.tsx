@@ -69,12 +69,12 @@ const MyLoginForm = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center">
-            <div className="items-center justify-between flex">
-                <div className="container px-[35px]">
+        <div className="min-h-screen flex lg:justify-end justify-center pr-[27px] max-sm:px-[35px] xl:pl-[237px] pl-10 pt-[30px]">
+            <div className="justify-end gap-[120px] flex">
+                <div className="container ml-auto">
                     {/* logo */}
                     <a href="http://localhost:3000/">
-                        <img src="../assets/images/png/logo.png" alt="logo" width={163} height={31} />
+                        <img className="pt-[19.37px]" src="../assets/images/png/logo.png" alt="logo" width={163} height={31} />
                     </a>
                     <h1 className="font-semibold text-3xl leading-[58.5px] text-black md:pt-[138px] pt-[90px]">Welcome Back</h1>
                     <p className="text-sm leading-[30px] text-gray">Welcome back! Please enter your details.</p>
@@ -148,8 +148,8 @@ const MyLoginForm = () => {
                         </p>
                     </form>
                 </div>
-                <div className="my-9 mr-7 w-full md:block hidden">
-                    <img src="./assets/images/png/form-image.png" alt="form-image" width={759} height={899} />
+                <div className="w-full md:block hidden">
+                    <img className="w-full bg-darkBlue rounded-[20px] py-[179px] px-[71px]" src="./assets/images/png/form-image.png" alt="form-image" width={759} height={899} />
                 </div>
             </div>
         </div>
