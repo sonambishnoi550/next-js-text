@@ -29,7 +29,7 @@ const MyForm = () => {
         if (!formData.email) newErrors.email = "Email is required";
         if (!formData.password) newErrors.password = "Password is required";
         else if (formData.password.length < 6) newErrors.password = "Password must be at least 6 characters";
-        if (!rememberMe) newErrors.rememberMe = "Agree it for sign in";
+        if (!rememberMe) newErrors.rememberMe = "Agree";
         return newErrors;
     };
 
@@ -66,7 +66,7 @@ const MyForm = () => {
                                 type="email"
                                 value={formData.email}
                                 onChange={handleChange}
-                                className={`placeholder:text-gray w-full mt-[6px] text-black border-light-gray rounded-lg border p-4 ${errors.email ? "border-red-500" : ""}`}
+                                className={`placeholder:text-gray w-full mt-[6px] text-black border-lightGray rounded-lg border p-4 ${errors.email ? "border-red-500" : ""}`}
                                 placeholder="Email"
                             />
                             {errors.email && (
@@ -80,7 +80,7 @@ const MyForm = () => {
                                 type="password"
                                 value={formData.password}
                                 onChange={handleChange}
-                                className={`placeholder:text-gray w-full text-black border-light-gray rounded-lg border p-4 ${errors.password ? "border-red-500" : ""}`}
+                                className={`placeholder:text-gray w-full text-black border-lightGray rounded-lg border p-4 ${errors.password ? "border-red-500" : ""}`}
                                 placeholder="Password"
                             />
                             {errors.password && (
@@ -107,7 +107,7 @@ const MyForm = () => {
 
                         <button
                             type="submit"
-                            className="w-full bg-black text-white p-3 mt-6 rounded-lg hover:bg-gray-800"
+                            className="w-full bg-black text-white p-3 mt-6 rounded-lg hover:bg-slate-600 transition-all duration-700"
                         >
                             Sign In
                         </button>

@@ -38,11 +38,11 @@ const ButtonQuestions = () => {
     return (
         <>
             <div className="flex items-center justify-center gap-10 my-6">
-                {email && <p className="text-lg font-semibold">Email: {email}</p>}
+                {email && <p className="!text-xl font-semibold">Email: {email}</p>}
                 {["Question 1", "Question 2", "Question 3"].map((label, index) => (
                     <button
                         key={index}
-                        className={`px-7 py-3 rounded-xl font-medium text-white ${activeQuestion === index + 1
+                        className={`px-7 py-3 rounded-xl font-medium text-lg text-white ${activeQuestion === index + 1
                             ? "bg-green-800"
                             : "bg-red-700 hover:bg-red-600"
                             }`}
