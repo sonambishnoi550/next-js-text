@@ -52,9 +52,9 @@ const Dashboard = () => {
                 {/* add logout button */}
                 <button
                     onClick={() => remove()}
-                    className="border border-black rounded-xl px-2 py-1"
+                    className="border border-black rounded-lg px-4 py-2"
                 >
-                    log out
+                    Log Out
                 </button>
                 {/* questionbbuttons from map */}
                 {["Question 1", "Question 2", "Question 3"].map((label, index) => (

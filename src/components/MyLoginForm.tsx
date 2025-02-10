@@ -37,7 +37,7 @@ const MyLoginForm = () => {
         // if password length is less than 6
         else if (formData.password.length < 6) newErrors.password = "Password must be at least 6 characters";
         // if checkbox is not checked
-        if (!rememberMe) newErrors.rememberMe = "Agree it for sign in";
+        if (!rememberMe) newErrors.rememberMe = "Agree";
         return newErrors;
     };
     // handlesubmit function
