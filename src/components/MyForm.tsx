@@ -52,13 +52,13 @@ const MyForm = () => {
     };
 
     return (
-        <div className="min-h-screen flex justify-end relative pr-[27px] pl-[237px] pt-[30px]">
+        <div className="min-h-screen flex lg:justify-end justify-center relative pr-[27px] max-sm:px-[35px] xl:pl-[237px] pl-10 pt-[30px]">
             <div className="justify-end gap-[120px] flex">
                 <div className="container ml-auto">
                     <img className="pt-[19.37px]" src="../assets/images/png/logo.png" alt="logo" width={163} height={31} />
                     <h1 className="font-semibold text-3xl leading-[58.5px] text-black pt-[138px]">Welcome Back</h1>
                     <p className="text-sm leading-[30px] text-gray">Welcome back! Please enter your details.</p>
-                    <form className="pt-[31px] max-w-[456px]" onSubmit={handleSubmit}>
+                    <form className="pt-[31px] w-full max-w-[456px]" onSubmit={handleSubmit}>
                         <div className="mb-[18px]">
                             <label className="text-black text-base font-medium">Email</label>
                             <input
@@ -80,7 +80,7 @@ const MyForm = () => {
                                 type="password"
                                 value={formData.password}
                                 onChange={handleChange}
-                                className={`placeholder:text-gray w-full text-black border-lightGray rounded-lg border p-4 ${errors.password ? "border-red-500" : ""}`}
+                                className={`placeholder:text-gray w-full mt-[6px] text-black border-lightGray rounded-lg border p-4 ${errors.password ? "border-red-500" : ""}`}
                                 placeholder="Password"
                             />
                             {errors.password && (
@@ -88,8 +88,8 @@ const MyForm = () => {
                             )}
                         </div>
 
-                        <div className="flex items-center justify-between">
-                            <label className="flex items-center text-base">
+                        <div className="md:flex items-center justify-between">
+                            <label className="flex items-center text-base max-sm:mb-[14px]">
                                 <input
                                     type="checkbox"
                                     checked={rememberMe}
