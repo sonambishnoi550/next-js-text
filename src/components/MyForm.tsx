@@ -52,7 +52,7 @@ const MyForm = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center">
+        <div className="min-h-screen flex items-center justify-center relative px-10">
             <div className="items-center justify-end gap-[120px] flex">
                 <div className="container max-w-[1335px] ml-auto">
                     <img src="../assets/images/png/logo.png" alt="logo" width={163} height={31} />
@@ -113,7 +113,7 @@ const MyForm = () => {
                         </button>
                         <button
                             type="button"
-                            className="w-full flex items-center justify-center p-3 mt-[6px] gap-[10px] border rounded-lg hover:bg-gray-100"
+                            className="w-full flex items-center justify-center p-3 mt-[6px] gap-[10px] border border-lightGray rounded-lg hover:text-white hover:bg-slate-500 transition-all duration-700"
                         >
                             <img src="../assets/images/svg/google.svg" alt="google" /> Sign in with Google
                         </button>
@@ -125,7 +125,7 @@ const MyForm = () => {
                         </p>
                     </form>
                 </div>
-                <div className="my-9 mr-7 w-full">
+                <div className=" w-full md:block hidden">
                     <img src="./assets/images/png/form-image.png" alt="form-image" width={759} height={899} />
                 </div>
             </div>
