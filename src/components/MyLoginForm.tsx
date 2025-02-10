@@ -69,7 +69,7 @@ const MyLoginForm = () => {
     };
 
     return (
-        <div className="min-h-screen flex 2xl:justify-center lg:justify-end justify-center pr-[27px] max-sm:px-[35px] xl:pl-[237px] pl-10 pt-[30px]">
+        <div className="min-h-screen flex 2xl:justify-center lg:justify-end justify-center pr-[27px] pb-10 max-sm:px-[35px] xl:pl-[237px] pl-10 pt-[30px]">
             <div className="justify-end gap-[120px] flex">
                 <div className="container ml-auto">
                     {/* logo */}
