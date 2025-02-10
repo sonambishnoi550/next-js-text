@@ -73,7 +73,7 @@ const MyForm = () => {
                                 <p className="text-red-500 text-sm absolute">{errors.email}</p>
                             )}
                         </div>
-                        <div className="mt-[6px] mb-5">
+                        <div className="mt-[6px] mb-[18px]">
                             <label className="text-black text-base font-medium">Password</label>
                             <input
                                 name="password"
