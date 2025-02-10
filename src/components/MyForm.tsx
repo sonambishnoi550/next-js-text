@@ -52,10 +52,10 @@ const MyForm = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center relative px-10">
-            <div className="items-center justify-end gap-[120px] flex">
-                <div className="container max-w-[1335px] ml-auto">
-                    <img src="../assets/images/png/logo.png" alt="logo" width={163} height={31} />
+        <div className="min-h-screen flex justify-end relative pr-[27px] pl-[237px] pt-[30px]">
+            <div className="justify-end gap-[120px] flex">
+                <div className="container ml-auto">
+                    <img className="pt-[19.37px]" src="../assets/images/png/logo.png" alt="logo" width={163} height={31} />
                     <h1 className="font-semibold text-3xl leading-[58.5px] text-black pt-[138px]">Welcome Back</h1>
                     <p className="text-sm leading-[30px] text-gray">Welcome back! Please enter your details.</p>
                     <form className="pt-[31px] max-w-[456px]" onSubmit={handleSubmit}>
@@ -126,7 +126,7 @@ const MyForm = () => {
                     </form>
                 </div>
                 <div className=" w-full md:block hidden">
-                    <img src="./assets/images/png/form-image.png" alt="form-image" width={759} height={899} />
+                    <img className="w-full bg-darkBlue rounded-[20px] py-[179px] px-[71px]" src="./assets/images/png/form-image.png" alt="form-image" width={617} height={541} />
                 </div>
             </div>
         </div>
