@@ -8,13 +8,11 @@ const MyForm = () => {
         email: string;
         password: string;
     }
-
     interface Errors {
         email?: string;
         password?: string;
         rememberMe?: string;
     }
-
     const [formData, setFormData] = useState<FormData>({ email: "", password: "" });
     const [rememberMe, setRememberMe] = useState(false);
     const [errors, setErrors] = useState<Errors>({});
@@ -118,8 +116,8 @@ const MyForm = () => {
                             <img src="../assets/images/svg/google.svg" alt="google" /> Sign in with Google
                         </button>
                         <p className="mt-4 text-center text-base font-inter">
-                            Don’t have an account?{" "}
-                            <a href="#" className="text-blue hover:text-red-600 transition-all duration-700">
+                            Don’t have an account?
+                            <a href="#" className="text-blue hover:text-red-600 transition-all duration-700 pl-[10px]">
                                 Sign up
                             </a>
                         </p>
