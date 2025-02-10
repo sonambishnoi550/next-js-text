@@ -61,8 +61,8 @@ const Dashboard = () => {
                     <button
                         key={index}
                         className={`px-7 py-3 rounded-xl font-medium text-white ${activeQuestion === index + 1
-                            ? "bg-green-600"
-                            : "bg-purple-700 hover:bg-purple-600"
+                            ? "bg-green-800"
+                            : "bg-red-700 hover:bg-red-600"
                             }`}
                         onClick={() => setActiveQuestion(index + 1)}
                     >

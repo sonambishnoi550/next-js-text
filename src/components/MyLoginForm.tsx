@@ -69,7 +69,7 @@ const MyLoginForm = () => {
     };
 
     return (
-        <div className="min-h-screen flex lg:justify-end justify-center pr-[27px] max-sm:px-[35px] xl:pl-[237px] pl-10 pt-[30px]">
+        <div className="min-h-screen flex 2xl:justify-center lg:justify-end justify-center pr-[27px] max-sm:px-[35px] xl:pl-[237px] pl-10 pt-[30px]">
             <div className="justify-end gap-[120px] flex">
                 <div className="container ml-auto">
                     {/* logo */}
@@ -148,8 +148,8 @@ const MyLoginForm = () => {
                         </p>
                     </form>
                 </div>
-                <div className="w-full md:block hidden">
-                    <img className="w-full bg-darkBlue rounded-[20px] py-[179px] px-[71px]" src="./assets/images/png/form-image.png" alt="form-image" width={759} height={899} />
+                <div className="max-w-[759px] max-lg:hidden w-full h-[899px] bg-darkBlue rounded-[20px] flex justify-center items-center">
+                    <img className="pointer-events-none max-2xl:w-10/12" src="./assets/images/png/form-image.png" alt="form-image" width={759} height={899} />
                 </div>
             </div>
         </div>
