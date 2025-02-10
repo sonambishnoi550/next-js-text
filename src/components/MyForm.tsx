@@ -94,10 +94,10 @@ const MyForm = () => {
                                     type="checkbox"
                                     checked={rememberMe}
                                     onChange={(e) => setRememberMe(e.target.checked)}
-                                    className="mr-2 text-base"
+                                    className="mr-2 text-base font-inter text-darkGray"
                                 /> Remember for 30 days
                             </label>
-                            <a href="#" className="text-base text-blue hover:underline">
+                            <a href="#" className="text-base text-blue hover:text-red transition-all duration-700">
                                 Forgot password?
                             </a>
                         </div>
@@ -117,9 +117,9 @@ const MyForm = () => {
                         >
                             <img src="../assets/images/svg/google.svg" alt="google" /> Sign in with Google
                         </button>
-                        <p className="mt-4 text-center text-sm">
+                        <p className="mt-4 text-center text-base font-inter">
                             Don’t have an account?{" "}
-                            <a href="#" className="text-blue hover:underline">
+                            <a href="#" className="text-blue hover:text-red-600 transition-all duration-700">
                                 Sign up
                             </a>
                         </p>
