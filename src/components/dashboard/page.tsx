@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { InlineWidget } from "react-calendly";
 
-const Dashboard = () => {
+const page = () => {
     // question data
     const Question = [{
         list: {
@@ -107,4 +107,4 @@ const Dashboard = () => {
 };
 
 
-export default Dashboard;
+export default page;
