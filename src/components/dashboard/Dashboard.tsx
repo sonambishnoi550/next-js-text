@@ -1,9 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { InlineWidget } from "react-calendly";
 
-const ButtonQuestions = () => {
+const Dashboard = () => {
+    // question data
     const Question = [{
         list: {
             data: [
@@ -14,37 +15,54 @@ const ButtonQuestions = () => {
             ]
         }
     }];
-    const searchParams = useSearchParams();
-    const email = searchParams.get("email");
-
+    // use router
+    const out = useRouter();
+    // remove value fuction
+    function remove() {
+        localStorage.setItem("isAuthenticated", "false");
+        localStorage.removeItem("formValue");
+        out.push("/");
+    }
+    // usestate
     const [activeQuestion, setActiveQuestion] = useState<number | null>(null);
     const [images, setImages] = useState<string[]>([]);
-
+    // useeffect
     useEffect(() => {
         return () => {
             images.forEach((imageUrl) => URL.revokeObjectURL(imageUrl));
         };
     }, [images]);
-
+    // handle image upload fuction
     const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+        // if event target files
         if (event.target.files) {
+            // uploaded images
             const uploadedImages = Array.from(event.target.files).map((file) =>
+                // create object url
                 URL.createObjectURL(file)
             );
+            // set multiple images
             setImages((prevImages) => [...prevImages, ...uploadedImages]);
         }
     };
 
     return (
         <>
-            <div className="flex items-center justify-center md:gap-10 gap-4 my-6 px-3">
-                {email && <p className="md:text-xl text-base font-semibold">Email: {email}</p>}
+            <div className="flex max-md:flex-col items-center justify-center gap-10 my-6">
+                {/* add logout button */}
+                <button
+                    onClick={() => remove()}
+                    className="border border-black rounded-xl px-2 py-1"
+                >
+                    log out
+                </button>
+                {/* questionbbuttons from map */}
                 {["Question 1", "Question 2", "Question 3"].map((label, index) => (
                     <button
                         key={index}
-                        className={`md:px-7 py-3 px-5 rounded-xl font-medium md:text-lg text-white ${activeQuestion === index + 1
-                            ? "bg-green-800"
-                            : "bg-red-700 hover:bg-red-600"
+                        className={`px-7 py-3 rounded-xl font-medium text-white ${activeQuestion === index + 1
+                            ? "bg-green-600"
+                            : "bg-purple-700 hover:bg-purple-600"
                             }`}
                         onClick={() => setActiveQuestion(index + 1)}
                     >
@@ -52,22 +70,22 @@ const ButtonQuestions = () => {
                     </button>
                 ))}
             </div>
-
+            {/* question 1 answer */}
             {activeQuestion === 1 && (
                 <div>
                     <p>{Question[0].list.data[0].title} {Question[0].list.data[0].options[0]}</p>
                 </div>
             )}
-
+            {/* question 2 answer */}
             {activeQuestion === 2 && (
                 <div>
                     <InlineWidget
-                        url="https://calendly.com/bishnoisonam079"
+                        url="https://calendly.com/vj13798/30min"
                         styles={{ height: "600px" }}
                     />
                 </div>
             )}
-
+            {/* question 3 answer */}
             {activeQuestion === 3 && (
                 <div>
                     <input type="file" multiple onChange={handleImageUpload} />
@@ -77,7 +95,7 @@ const ButtonQuestions = () => {
                                 <img
                                     src={imageUrl}
                                     alt={`upload-${index}`}
-                                className="object-cover w-full h-full rounded-lg shadow-lg"
+                                    className="object-cover w-full h-full rounded-lg shadow-lg"
                                 />
                             </div>
                         ))}
@@ -88,4 +106,5 @@ const ButtonQuestions = () => {
     );
 };
 
-export default ButtonQuestions;
+
+export default Dashboard;
