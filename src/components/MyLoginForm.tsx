@@ -87,7 +87,7 @@ const MyLoginForm = () => {
                                 type="email"
                                 value={formData.email}
                                 onChange={handleChange}
-                                className={`placeholder:text-gray w-full mt-[6px] text-black border-light-gray rounded-lg border p-4 ${errors.email ? "border-red-500" : ""}`}
+                                className={`placeholder:text-gray w-full mt-[6px] text-gray border-lightGray rounded-lg border p-4 ${errors.email ? "border-red-500" : ""}`}
                                 placeholder="Email"
                             />
                             {/* if email not field */}
@@ -102,7 +102,7 @@ const MyLoginForm = () => {
                                 type="password"
                                 value={formData.password}
                                 onChange={handleChange}
-                                className={`placeholder:text-gray w-full text-black border-light-gray rounded-lg border p-4 ${errors.password ? "border-red-500" : ""}`}
+                                className={`placeholder:text-gray w-full text-gray border-lightGray rounded-lg border p-4 ${errors.password ? "border-red-500" : ""}`}
                                 placeholder="Password"
                             />
                             {/* is password not field  */}
@@ -111,7 +111,7 @@ const MyLoginForm = () => {
                             )}
                         </div>
                         <div className="md:flex md:items-center md:justify-between">
-                            <label className="flex items-center text-base max-md:mb-[14px]">
+                            <label className="flex items-center text-base max-md:mb-[14px] font-inter">
                                 <input
                                     type="checkbox"
                                     checked={rememberMe}
@@ -119,7 +119,7 @@ const MyLoginForm = () => {
                                     className="mr-2 text-base"
                                 /> Remember for 30 days
                             </label>
-                            <a href="#" className="text-base text-blue hover:underline">
+                            <a href="#" className="text-base text-blue hover:text-red-600 transition-all duration-700">
                                 Forgot password?
                             </a>
                         </div>
@@ -130,19 +130,19 @@ const MyLoginForm = () => {
 
                         <button
                             type="submit"
-                            className="w-full bg-black text-white p-3 mt-6 rounded-lg hover:bg-gray-800"
+                            className="w-full bg-black text-white p-3 mt-6 rounded-lg hover:bg-slate-500 transition-all duration-700"
                         >
                             Sign In
                         </button>
                         <button
                             type="button"
-                            className="w-full flex items-center justify-center p-3 mt-[6px] gap-[10px] border rounded-lg hover:bg-gray-100"
+                            className="w-full flex items-center justify-center p-3 mt-[6px] gap-[10px] border border-lightGray rounded-lg hover:bg-slate-600 hover:text-white transition-all duration-700"
                         >
                             <img src="../assets/images/svg/google.svg" alt="google" /> Sign in with Google
                         </button>
                         <p className="mt-4 md:text-center text-sm font-inter">
                             Don’t have an account?{" "}
-                            <a href="#" className="text-blue hover:underline">
+                            <a href="#" className="text-blue hover:text-red-600 transition-all duration-700">
                                 Sign up
                             </a>
                         </p>
