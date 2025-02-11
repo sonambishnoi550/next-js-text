@@ -103,7 +103,7 @@ const MyLoginForm = () => {
                                 value={formData.password}
                                 onChange={handleChange}
                                 className={`placeholder:text-gray w-full text-gray border-lightGray rounded-lg border p-4 ${errors.password ? "border-red-500" : ""}`}
-                                placeholder="Password"
+                                placeholder="........."
                             />
                             {/* is password not field  */}
                             {errors.password && (
