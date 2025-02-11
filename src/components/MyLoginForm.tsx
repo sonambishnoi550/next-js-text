@@ -148,7 +148,7 @@ const MyLoginForm = () => {
                         </p>
                     </form>
                 </div>
-                <div className="max-w-[759px] max-lg:hidden w-full h-[899px] bg-darkBlue rounded-[20px] flex justify-center items-center">
+                <div className="max-w-[759px] max-lg:hidden w-full h-[899px] bg-darkBlue xl:px-[90px] rounded-[20px] flex justify-center items-center">
                     <img className="pointer-events-none max-2xl:w-10/12" src="./assets/images/png/form-image.png" alt="form-image" width={759} height={899} />
                 </div>
             </div>
