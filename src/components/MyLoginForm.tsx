@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 
@@ -21,25 +21,59 @@ const MyLoginForm = () => {
     const [errors, setErrors] = useState<Errors>({});
     const router = useRouter();
 
-    // handle change function
-    const handleChange = (e : any) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+    const handleChange = (e: any) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+
+        setErrors((prevErrors) => {
+            const newErrors = { ...prevErrors };
+
+            if (name === "email") {
+                const emailRegex = /^[^\s@]+@[^\s@]+.[^\s@]{2,}$/i;
+                if (value && emailRegex.test(value)) {
+                    delete newErrors.email;
+                }
+            }
+
+            if (name === "password" && value.length >= 6) {
+                delete newErrors.password;
+            }
+
+            return newErrors;
+        });
     };
 
     // validate function
     const validate = (): Errors => {
-        // new error object 
         const newErrors: Errors = {};
-        // if email is empty
-        if (!formData.email) newErrors.email = "Email is required";
-        // if email is not valid or password empty
-        if (!formData.password) newErrors.password = "Password is required";
-        // if password length is less than 6
-        else if (formData.password.length < 6) newErrors.password = "Password must be at least 6 characters";
-        // if checkbox is not checked
-        if (!rememberMe) newErrors.rememberMe = "Agree";
+
+        // Email validation regex
+        const emailRegex = /^[^\s@]+@[^\s@]+.[^\s@]{2,}$/i;
+
+        if (!formData.email) {
+            newErrors.email = "Email is required";
+        } else if (!emailRegex.test(formData.email)) {
+            newErrors.email = "Enter a valid email address";
+        }
+
+        if (!formData.password) {
+            newErrors.password = "Password is required";
+        } else if (formData.password.length < 6) {
+            newErrors.password = "Password must be at least 6 characters";
+        }
+
+        if (!rememberMe) {
+            newErrors.rememberMe = "Agree it for sign in";
+        }
+
         return newErrors;
     };
+    useEffect(() => {
+        const isAuthenticated = localStorage.getItem("isAuthenticated");
+        if (isAuthenticated === "true") {
+            router.push("/dashboard-page");
+        }
+    })
     // handlesubmit function
     const handleSubmit = (e : any) => {
         // prevent default
@@ -110,7 +144,7 @@ const MyLoginForm = () => {
                                 <p className="text-red-500 text-sm mt-1 absolute">{errors.password}</p>
                             )}
                         </div>
-                        <div className="md:flex md:items-center md:justify-between">
+                        <div className="lg:flex md:items-center md:justify-between">
                             <label className="flex items-center text-base max-md:mb-[14px] font-inter">
                                 <input
                                     type="checkbox"

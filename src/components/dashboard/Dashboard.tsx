@@ -19,10 +19,16 @@ const Dashboard = () => {
     const logout = useRouter();
     // remove value fuction
     function remove() {
-        localStorage.setItem("isAuthenticated", "false");
-        localStorage.removeItem("formValue");
+       
+        localStorage.removeItem("isAuthenticated");
         logout.push("/");
     }
+    useEffect(() => {
+        const isAuthenticated = localStorage.getItem("isAuthenticated");
+        if (!isAuthenticated) {
+            logout.push("/")
+        }
+    })
     // usestate
     const [activeQuestion, setActiveQuestion] = useState<number | null>(null);
     const [images, setImages] = useState<string[]>([]);
@@ -47,7 +53,7 @@ const Dashboard = () => {
     };
 
     return (
-        <>
+        <div className="px-4 text-center">
             <div className="flex max-md:flex-col items-center justify-center gap-10 my-6">
                 {/* add logout button */}
                 <button
@@ -102,7 +108,7 @@ const Dashboard = () => {
                     </div>
                 </div>
             )}
-        </>
+        </div>
     );
 };
 
