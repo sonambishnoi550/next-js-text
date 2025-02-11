@@ -73,7 +73,7 @@ const MyLoginForm = () => {
             <div className="justify-end gap-[120px] flex">
                 <div className="container ml-auto">
                     {/* logo */}
-                    <a href="http://localhost:3000/">
+                    <a href="#">
                         <img className="pt-[19.37px]" src="../assets/images/png/logo.png" alt="logo" width={163} height={31} />
                     </a>
                     <h1 className="font-semibold text-3xl leading-[58.5px] text-black md:pt-[138px] pt-[90px]">Welcome Back</h1>
