@@ -1,10 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { InlineWidget } from "react-calendly";
 
 const Dashboard = () => {
-    // question data
     const Question = [{
         list: {
             data: [
@@ -15,74 +14,70 @@ const Dashboard = () => {
             ]
         }
     }];
-    // use router
-    const logout = useRouter();
-    // remove value fuction
-    function remove() {
-       
-        localStorage.removeItem("isAuthenticated");
-        logout.push("/");
-    }
+
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const questionParam = searchParams.get("question");
+    const [activeQuestion, setActiveQuestion] = useState<number | null>(questionParam ? Number(questionParam) : null);
+    const [images, setImages] = useState<string[]>([]);
+
     useEffect(() => {
         const isAuthenticated = localStorage.getItem("isAuthenticated");
         if (!isAuthenticated) {
-            logout.push("/")
+            router.push("/");
         }
-    })
-    // usestate
-    const [activeQuestion, setActiveQuestion] = useState<number | null>(null);
-    const [images, setImages] = useState<string[]>([]);
-    // useeffect
+    }, []);
+
     useEffect(() => {
         return () => {
             images.forEach((imageUrl) => URL.revokeObjectURL(imageUrl));
         };
     }, [images]);
-    // handle image upload fuction
-    const handleImageUpload = (event : any) => {
-        // if event target files
+
+    const handleImageUpload = (event: any) => {
         if (event.target.files) {
-            // uploaded images
             const uploadedImages = Array.from(event.target.files).map((file) =>
-                // create object url
                 URL.createObjectURL(file as any)
             );
-            // set multiple images
             setImages((prevImages) => [...prevImages, ...uploadedImages]);
         }
+    };
+
+    const handleQuestionClick = (index: number) => {
+        setActiveQuestion(index);
+        router.push(`?question=${index}`);
     };
 
     return (
         <div className="px-4 text-center">
             <div className="flex max-md:flex-col items-center justify-center gap-10 my-6">
-                {/* add logout button */}
                 <button
-                    onClick={() => remove()}
+                    onClick={() => {
+                        localStorage.removeItem("isAuthenticated");
+                        router.push("/");
+                    }}
                     className="border border-black rounded-lg px-4 py-2"
                 >
                     Log Out
                 </button>
-                {/* questionbbuttons from map */}
                 {["Question 1", "Question 2", "Question 3"].map((label, index) => (
                     <button
                         key={index}
                         className={`px-7 py-3 rounded-xl font-medium text-white ${activeQuestion === index + 1
                             ? "bg-green-800"
-                            : "bg-red-700 hover:bg-red-600"
-                            }`}
-                        onClick={() => setActiveQuestion(index + 1)}
+                            : "bg-red-700 hover:bg-red-600"}
+                        `}
+                        onClick={() => handleQuestionClick(index + 1)}
                     >
                         {label}
                     </button>
                 ))}
             </div>
-            {/* question 1 answer */}
             {activeQuestion === 1 && (
                 <div>
                     <p>{Question[0].list.data[0].title} {Question[0].list.data[0].options[0]}</p>
                 </div>
             )}
-            {/* question 2 answer */}
             {activeQuestion === 2 && (
                 <div>
                     <InlineWidget
@@ -91,7 +86,6 @@ const Dashboard = () => {
                     />
                 </div>
             )}
-            {/* question 3 answer */}
             {activeQuestion === 3 && (
                 <div>
                     <input type="file" multiple onChange={handleImageUpload} />
@@ -111,6 +105,5 @@ const Dashboard = () => {
         </div>
     );
 };
-
 
 export default Dashboard;
