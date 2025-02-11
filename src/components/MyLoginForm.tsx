@@ -136,8 +136,8 @@ const MyLoginForm = () => {
                                 type="password"
                                 value={formData.password}
                                 onChange={handleChange}
-                                className={`placeholder:text-gray w-full text-gray border-lightGray rounded-lg border p-4 ${errors.password ? "border-red-500" : ""}`}
-                                placeholder="........."
+                                className={`placeholder:text-gray w-full mt-[6px] text-gray border-lightGray rounded-lg border p-4 ${errors.password ? "border-red-500" : ""}`}
+                                placeholder="••••••••"
                             />
                             {/* is password not field  */}
                             {errors.password && (
@@ -172,7 +172,7 @@ const MyLoginForm = () => {
                             type="button"
                             className="w-full flex items-center justify-center p-3 mt-[6px] gap-[10px] border border-lightGray rounded-lg hover:bg-slate-600 hover:text-white transition-all duration-700"
                         >
-                            <img src="../assets/images/svg/google.svg" alt="google" /> Sign in with Google
+                            <img src="../assets/images/svg/google.svg" alt="google"/> Sign in with Google
                         </button>
                         <p className="mt-4 md:text-center text-sm font-inter">
                             Don’t have an account?{" "}
