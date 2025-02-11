@@ -22,7 +22,7 @@ const MyLoginForm = () => {
     const router = useRouter();
 
     // handle change function
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e : any) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
@@ -41,7 +41,7 @@ const MyLoginForm = () => {
         return newErrors;
     };
     // handlesubmit function
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e : any) => {
         // prevent default
         e.preventDefault();
         const validationErrors = validate();

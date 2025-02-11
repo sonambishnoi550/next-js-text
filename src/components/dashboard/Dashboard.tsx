@@ -33,13 +33,13 @@ const Dashboard = () => {
         };
     }, [images]);
     // handle image upload fuction
-    const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleImageUpload = (event : any) => {
         // if event target files
         if (event.target.files) {
             // uploaded images
             const uploadedImages = Array.from(event.target.files).map((file) =>
                 // create object url
-                URL.createObjectURL(file)
+                URL.createObjectURL(file as any)
             );
             // set multiple images
             setImages((prevImages) => [...prevImages, ...uploadedImages]);
