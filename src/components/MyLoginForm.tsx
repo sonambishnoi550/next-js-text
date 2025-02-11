@@ -140,7 +140,7 @@ const MyLoginForm = () => {
                         >
                             <img src="../assets/images/svg/google.svg" alt="google" /> Sign in with Google
                         </button>
-                        <p className="mt-4 md:text-center text-sm">
+                        <p className="mt-4 md:text-center text-sm font-inter">
                             Don’t have an account?{" "}
                             <a href="#" className="text-blue hover:underline">
                                 Sign up

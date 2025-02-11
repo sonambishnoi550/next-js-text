@@ -80,7 +80,7 @@ const Dashboard = () => {
             {activeQuestion === 2 && (
                 <div>
                     <InlineWidget
-                        url="https://calendly.com/vj13798/30min"
+                        url="https://calendly.com/bishnoisonam079"
                         styles={{ height: "600px" }}
                     />
                 </div>
