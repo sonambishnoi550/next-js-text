@@ -22,7 +22,7 @@ const Dashboard = () => {
     const [images, setImages] = useState<string[]>([]);
 
     useEffect(() => {
-        const isAuthenticated = localStorage.getItem("isAuthenticated");
+        const isAuthenticated = localStorage.getItem("formValue");
         if (!isAuthenticated) {
             router.push("/");
         }
