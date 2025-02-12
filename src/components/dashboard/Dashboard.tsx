@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { InlineWidget } from "react-calendly";
-import { error } from "console";
 
 const Dashboard = () => {
     const Question = [{
