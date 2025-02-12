@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { InlineWidget } from "react-calendly";
+import { error } from "console";
 
 const Dashboard = () => {
     const Question = [{
@@ -20,6 +21,7 @@ const Dashboard = () => {
     const questionParam = searchParams.get("question");
     const [activeQuestion, setActiveQuestion] = useState<number | null>(questionParam ? Number(questionParam) : null);
     const [images, setImages] = useState<string[]>([]);
+    const [error, setError] = useState<string>("");
 
     useEffect(() => {
         const isAuthenticated = localStorage.getItem("formValue");
@@ -34,10 +36,22 @@ const Dashboard = () => {
         };
     }, [images]);
 
-    const handleImageUpload = (event: any) => {
+    const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files) {
-            const uploadedImages = Array.from(event.target.files).map((file) =>
-                URL.createObjectURL(file as any)
+            const allowedTypes = ["image/png", "image/jpeg", "image/webp"];
+            const uploadedFiles = Array.from(event.target.files);
+            const validImages = uploadedFiles.filter(file => allowedTypes.includes(file.type));
+            const invalidFiles = uploadedFiles.filter(file => !allowedTypes.includes(file.type));
+
+            if (invalidFiles.length > 0) {
+                setError("only PNG,WEBP,JPEG files are allowed");
+
+            }
+            else {
+                setError("");
+            }
+            const uploadedImages = validImages.map((file) =>
+                URL.createObjectURL(file)
             );
             setImages((prevImages) => [...prevImages, ...uploadedImages]);
         }
@@ -89,6 +103,7 @@ const Dashboard = () => {
             {activeQuestion === 3 && (
                 <div>
                     <input type="file" multiple onChange={handleImageUpload} />
+                    {error && <p className="text-red-500 mt-2">{error}</p>}
                     <div className="flex flex-wrap mt-4 gap-4">
                         {images.map((imageUrl, index) => (
                             <div key={index} className="relative w-[200px] h-[200px]">
