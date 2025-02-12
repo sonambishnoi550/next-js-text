@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import { InlineWidget } from "react-calendly";
 
-const Dashboard = () => {
+const Page = () => {
     const Question = [{
         list: {
             data: [
@@ -14,16 +14,15 @@ const Dashboard = () => {
             ]
         }
     }];
-
+    const params = useParams();
     const router = useRouter();
-    const searchParams = useSearchParams();
-    const questionParam = searchParams.get("question");
-    const [activeQuestion, setActiveQuestion] = useState<number | null>(questionParam ? Number(questionParam) : null);
+    const { question } = params;
+    const [activeQuestion, setActiveQuestion] = useState<number | null>(question ? Number(question) : null);
     const [images, setImages] = useState<string[]>([]);
     const [error, setError] = useState<string>("");
 
     useEffect(() => {
-        const isAuthenticated = localStorage.getItem("formValue");
+        const isAuthenticated = localStorage.getItem("isAuthenticated");
         if (!isAuthenticated) {
             router.push("/");
         }
@@ -58,7 +57,7 @@ const Dashboard = () => {
 
     const handleQuestionClick = (index: number) => {
         setActiveQuestion(index);
-        router.push(`?question=${index}`);
+        router.push(`/dashboard-page/${index}`);
     };
 
     return (
@@ -120,4 +119,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default Page;
