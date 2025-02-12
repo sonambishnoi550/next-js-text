@@ -21,7 +21,7 @@ const MyLoginForm = () => {
         if (isAuthenticated === "true") {
             router.push("/dashboard-page");
         }
-    }, []); // ✅ Fixed: Empty dependency array, so it runs only once
+    }, []);
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
@@ -50,14 +50,11 @@ const MyLoginForm = () => {
         <div className="min-h-screen flex 2xl:justify-center lg:justify-end justify-center pr-[27px] pb-10 max-sm:px-[35px] xl:pl-[237px] pl-10 pt-[30px]">
             <div className="justify-end gap-[120px] flex">
                 <div className="container ml-auto">
-                    {/* Logo */}
                     <a href="#">
                         <img className="pt-[19.37px]" src="../assets/images/png/logo.png" alt="logo" width={163} height={31} />
                     </a>
                     <h1 className="font-semibold text-3xl leading-[58.5px] text-black md:pt-[138px] pt-[90px]">Welcome Back</h1>
                     <p className="text-sm leading-[30px] text-gray">Welcome back! Please enter your details.</p>
-
-                    {/* Form */}
                     <form className="pt-[31px] max-w-[456px]" onSubmit={handleSubmit}>
                         <div className="mb-[18px]">
                             <label className="text-black text-base font-medium">Email</label>
